@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "tasks")
-data class Task (
+data class Task(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -19,9 +19,13 @@ data class Task (
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    val status: TaskStatus = TaskStatus.NEW
-){
-    constructor() : this(0, "", "", TaskStatus.NEW) {
+    val status: TaskStatus = TaskStatus.NEW,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    val user: User,
+) {
+    constructor() : this(0, "", "", TaskStatus.NEW, User()) {
     }
 }
 
