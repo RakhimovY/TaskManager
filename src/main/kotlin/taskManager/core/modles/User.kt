@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "users")
-data class User (
+data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -21,7 +21,14 @@ data class User (
     var phoneNumber: String,
 
     @Column(name = "registrationDate")
-    var registrationDate: String? = LocalDate.now().toString()
+    var registrationDate: String? = LocalDate.now().toString(),
+
+    @OneToMany(
+        mappedBy = "user",
+        cascade = [CascadeType.ALL],
+        fetch = FetchType.LAZY
+    )
+    val tasks: List<Task> = listOf()
 ) {
     constructor() : this(0, "", "", "", "")
 }

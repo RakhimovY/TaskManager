@@ -12,6 +12,7 @@ import taskManager.core.dto.UserDto
 import taskManager.core.exception.UserAlreadyExistException
 import taskManager.core.repository.UserRepository
 import taskManager.core.utils.JwtTokenUtils
+import taskManager.core.utils.MessageUtil
 
 @Service
 class AuthService(
@@ -19,8 +20,8 @@ class AuthService(
     private val userService: UserService,
     private val authenticationManager: AuthenticationManager,
     private val jwtTokenUtils: JwtTokenUtils,
-
-    ) {
+    private val messageUtil: MessageUtil
+) {
     fun registerNewUser(requestDto: RegistrationDto?): ResponseEntity<UserDto> {
         if (requestDto == null){
              throw IllegalArgumentException("Request body is null")
@@ -51,7 +52,7 @@ class AuthService(
                 )
             )
         } catch (_: BadCredentialsException) {
-            throw BadCredentialsException("Login or password is incorrect")
+            throw RuntimeException(messageUtil.getMessage("error.user.not_found"))
         }
         val userDetails = userService.loadUserByUsername(loginRequest.email)
         val token = jwtTokenUtils.generateToken(userDetails)
