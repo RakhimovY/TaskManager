@@ -1,3 +1,4 @@
+#Checking the configuration of the application.yml file
 jwt:
   secret: 984hg493gh0439rthr0426uruj2309yh937gc763fe87t3f89723gf
   accessTokenExpiration: 3600000

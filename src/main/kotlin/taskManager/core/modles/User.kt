@@ -28,7 +28,14 @@ data class User(
         cascade = [CascadeType.ALL],
         fetch = FetchType.LAZY
     )
-    val tasks: List<Task> = listOf()
+    val tasks: List<Task> = listOf(),
+
+    @OneToOne(
+        mappedBy = "fileUser",
+        cascade = [CascadeType.ALL],
+        fetch = FetchType.LAZY
+    )
+    val file: File? = null
 ) {
     constructor() : this(0, "", "", "", "")
 }
