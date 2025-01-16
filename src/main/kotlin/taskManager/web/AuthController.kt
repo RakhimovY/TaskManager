@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import taskManager.core.dto.LoginRequest
 import taskManager.core.dto.LoginResponse
-import taskManager.core.dto.RegistrationDto
+import taskManager.core.dto.RegistrationRequest
 import taskManager.core.dto.UserDto
 import taskManager.core.services.AuthService
 
@@ -17,8 +17,8 @@ class AuthController(
     private val authService: AuthService,
 ) {
     @PostMapping("/sign-up")
-    fun registerNewUser(@RequestBody registrationDto: RegistrationDto): ResponseEntity<UserDto> {
-        return authService.registerNewUser(registrationDto)
+    fun registerNewUser(@RequestBody registrationRequest: RegistrationRequest): ResponseEntity<UserDto> {
+        return authService.registerNewUser(registrationRequest)
     }
 
     @PostMapping("/sign-in")
