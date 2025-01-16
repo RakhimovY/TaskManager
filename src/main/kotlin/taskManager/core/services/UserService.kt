@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import taskManager.core.dto.RegistrationDto
+import taskManager.core.dto.RegistrationRequest
 import taskManager.core.dto.UserDto
 import taskManager.core.exception.UserAlreadyExistException
 import taskManager.core.exception.UserNotFounded
@@ -69,7 +69,7 @@ class UserService(
         })
     }
 
-    fun creatNewUser(requestDto: RegistrationDto): User {
+    fun creatNewUser(requestDto: RegistrationRequest): User {
         val findUserByEmail = userRepository.getUserByEmail(requestDto.email)
         val findUserByPhone = userRepository.getUserByPhoneNumber(requestDto.phoneNumber)
 

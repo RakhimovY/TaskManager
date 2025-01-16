@@ -1,6 +1,6 @@
 package taskManager.core.dto
 
-data class RegistrationDto(
+data class RegistrationRequest(
     val password: String,
     val phoneNumber: String,
     val email: String,

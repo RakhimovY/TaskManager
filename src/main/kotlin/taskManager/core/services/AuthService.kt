@@ -7,7 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.stereotype.Service
 import taskManager.core.dto.LoginRequest
 import taskManager.core.dto.LoginResponse
-import taskManager.core.dto.RegistrationDto
+import taskManager.core.dto.RegistrationRequest
 import taskManager.core.dto.UserDto
 import taskManager.core.exception.UserAlreadyExistException
 import taskManager.core.repository.UserRepository
@@ -22,7 +22,7 @@ class AuthService(
     private val jwtTokenUtils: JwtTokenUtils,
     private val messageUtil: MessageUtil
 ) {
-    fun registerNewUser(requestDto: RegistrationDto?): ResponseEntity<UserDto> {
+    fun registerNewUser(requestDto: RegistrationRequest?): ResponseEntity<UserDto> {
         if (requestDto == null){
              throw IllegalArgumentException("Request body is null")
         }
