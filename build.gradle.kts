@@ -19,6 +19,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.2.5")
     implementation("io.jsonwebtoken:jjwt:0.9.1")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
+    implementation("io.minio:minio:8.5.3")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

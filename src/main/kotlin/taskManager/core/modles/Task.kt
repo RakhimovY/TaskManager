@@ -27,7 +27,6 @@ data class Task(
 ) {
     constructor() : this(0, "", "", TaskStatus.NEW, User(
         0, "", "", ""
-    )) {
-    }
+    ))
 }
 
