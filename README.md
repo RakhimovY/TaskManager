@@ -13,18 +13,18 @@ Task Manager is a Spring Boot application for managing tasks. It uses Kotlin and
 ### Running the Application
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/RakhimovY/TaskManager.git
+    cd TaskManager
     ```
 
-2. Build the project:
-    ```sh
-    ./gradlew build
-    ```
-
-3. Start the services using Docker Compose:
+2. Start the services using Docker Compose:
     ```sh
     docker-compose up
+    ```
+   
+3. Build the project:
+    ```sh
+    ./gradlew build
     ```
 
 4. Run the application:
